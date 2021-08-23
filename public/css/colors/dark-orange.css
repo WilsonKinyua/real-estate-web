@@ -248,7 +248,7 @@ a.button.border, a.button {
 	color: #f55d2c;
 }
 .inner-pages .port-info .btn {
-	background: #fa2964;
+	background: #1dbf73;
 	border: 1px solid #f55d2c;
 }
 #login .btn_1, a.btn_1 {
@@ -396,7 +396,7 @@ section.pricing-table {
 .slick-dots li:after {
     background-color: #f55d2c;
 }
-.newsletters p, 
+.newsletters p,
 .first-footer .netabout p {
     color: rgba(245, 255, 255, 0.8);
 }

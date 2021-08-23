@@ -1,10 +1,5 @@
 @charset "UTF-8";
 /*------------------------------------------------------------------
-Author       : Code-Theme
-Template Name: Find Houses - HTML5 Template
-Version      : 1.2
--------------------------------------------------------------------*/
-/*------------------------------------------------------------------
 [Table of contents]
 
 1. Typography
@@ -6021,7 +6016,7 @@ a.button,
 
 .play-icon {
   font-size: 22px;
-  color: #FF385C;
+  color: #1dbf73;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -6102,7 +6097,7 @@ a.button,
 }
 
 .overlay-dark::after {
-  background-color: #ff385c;
+  background-color: #1dbf73;
   opacity: 0.80;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=85)";
   z-index: -1;
@@ -6118,7 +6113,7 @@ a.button,
 }
 
 .homepage-4 #navigation.style-1 ul li:hover {
-  background: #FF385C;
+  background: #1dbf73;
 }
 
 .homepage-4 .btn,
@@ -6152,17 +6147,17 @@ a.button,
 .homepage-4 a.button.border, a.button,
 .homepage-4 .header-image .left .btn-white {
   background: #fff;
-  color: #FF385C !important;
+  color: #1dbf73 !important;
   -webkit-box-shadow: 0px 0px 0px 4px rgba(255, 255, 255, 0.2);
           box-shadow: 0px 0px 0px 4px rgba(255, 255, 255, 0.2);
 }
 
 .homepage-4 .home18 .sec-title h2 {
-  color: #FF385C;
+  color: #1dbf73;
 }
 
 .homepage-4 .home18 .sec-title h2 span::before {
-  background: #FF385C;
+  background: #1dbf73;
 }
 
 .homepage-4 .portfolio .homes-tag.sale {
@@ -6170,7 +6165,7 @@ a.button,
 }
 
 .homepage-4 .homes-tag.featured {
-  background: #FF385C !important;
+  background: #1dbf73 !important;
 }
 
 .homepage-4 .portfolio .homes-price {
@@ -6265,12 +6260,12 @@ a.button,
 
 .homepage-4 .portfolio .homes-content h3 a:hover,
 .homepage-4 .blog-section .news-item h3:hover {
-  color: #FF385C;
+  color: #1dbf73;
 }
 
 .homepage-4 .btn:hover,
 .homepage-4 .popular-places .listing-badges .featured {
-  background: #FF385C;
+  background: #1dbf73;
 }
 
 .homepage-4 .popular-places .img-box {
@@ -6305,7 +6300,7 @@ a.button,
 }
 
 .homepage-4 .info-help .info-head .info-text .btn-pro {
-  background: #FF385C;
+  background: #1dbf73;
 }
 
 .homepage-4 .testimonials .test-1 h3 {
@@ -6313,7 +6308,7 @@ a.button,
 }
 
 .homepage-4 .starts .fa {
-  color: #FF385C !important;
+  color: #1dbf73 !important;
 }
 
 .homepage-4 .testimonials .test-1 p::before {
@@ -6323,7 +6318,7 @@ a.button,
   left: 236px;
   top: -24px;
   position: relative;
-  color: #FF385C;
+  color: #1dbf73;
 }
 
 .homepage-4 .owl-dots {
@@ -6356,7 +6351,7 @@ a.button,
 .homepage-4 .blog-section .action-list .fa-comment,
 .homepage-4 .blog-section .action-list .fa-share-alt,
 .homepage-4 .blog-section .news-link {
-  color: #FF385C;
+  color: #1dbf73;
 }
 
 .homepage-4 .first-footer .top-footer {
@@ -6368,7 +6363,7 @@ a.button,
 .homepage-4 .first-footer .newsletters h3::after,
 .homepage-4 .first-footer .bloq-email .email input[type="submit"],
 .homepage-4 .go-up {
-  background: #FF385C;
+  background: #1dbf73;
 }
 
 .homepage-4 .welcome-area {
@@ -7004,12 +6999,12 @@ html input[disabled] {
 .hp-6 .btn.sApp-btn:before,
 .hp-6 .bg-overlay::after,
 .hp-6 .benifits-item:after {
-  background: linear-gradient(-47deg, #FF385C 0%, #FF385C 100%);
+  background: linear-gradient(-47deg, #1dbf73 0%, #1dbf73 100%);
 }
 
 .hp-6 a.btn.btn-yellow:hover {
   background: #fff !important;
-  color: #FF385C;
+  color: #1dbf73;
 }
 
 .hp-6 .bg-overlay::after {
@@ -7020,14 +7015,14 @@ html input[disabled] {
 .hp-6 .rld-banner-tab .nav-item a.active,
 .hp-6 .rld-banner-tab .nav-item a:hover,
 .hp-6 .rld-banner-tab .nav-item a.active:before {
-  background: #FF385C;
+  background: #1dbf73;
 }
 
 .hp-6 .btn.btn-yellow {
   border: 0px;
   border-radius: 8px;
   font-size: 15px;
-  background-color: #FF385C;
+  background-color: #1dbf73;
   -webkit-box-shadow: 0px 1px 4px 0px rgba(255, 90, 95, 0.3);
           box-shadow: 0px 1px 4px 0px rgba(255, 90, 95, 0.3);
   color: #ffffff;
@@ -7257,7 +7252,7 @@ html input[disabled] {
   font-size: 20px;
   font-weight: 400;
   margin-left: 15px;
-  color: #FF385C;
+  color: #1dbf73;
 }
 
 .hp-6 .explore__form-checkbox-list.full-filter.filter-block {
@@ -7418,7 +7413,7 @@ html input[disabled] {
   width: 18px;
   height: 18px;
   border-radius: 50%;
-  border: 2px solid #FF385C;
+  border: 2px solid #1dbf73;
   cursor: w-resize;
   background: #fff;
   outline: none;
@@ -7441,7 +7436,7 @@ html input[disabled] {
 }
 
 .hp-6 .range-slider .ui-widget-header {
-  background-color: #FF385C;
+  background-color: #1dbf73;
 }
 
 .hp-6 .range-slider .ui-slider.ui-state-disabled .ui-slider-handle,
@@ -7573,7 +7568,7 @@ html input[disabled] {
   color: #fff;
   text-align: center;
   line-height: 15px;
-  background-color: #FF385C;
+  background-color: #1dbf73;
   border: 2px solid transparent;
   -webkit-transition: border-color 0s;
   transition: border-color 0s;
@@ -11784,7 +11779,7 @@ section.team {
 .th-8 .btn:hover,
 .th-8 .popular-places .listing-badges .featured,
 .th-8 .homes-tag.featured {
-  background: #FF385C !important;
+  background: #1dbf73 !important;
 }
 
 .th-8 .filter .button {
@@ -12197,7 +12192,7 @@ form label.error {
 .th-8 .parallax-search8 .form-group .btn {
   display: block;
   width: 100%;
-  background: #FF385C;
+  background: #1dbf73;
   cursor: pointer;
   color: #fff;
   text-transform: uppercase;
@@ -12219,11 +12214,11 @@ form label.error {
 }
 
 .th-8 .parallax-search8 .form-group .nice-select i {
-  color: #FF385C;
+  color: #1dbf73;
 }
 
 .th-8 .parallax-search8 .form-group .nice-select:hover {
-  color: #FF385C;
+  color: #1dbf73;
 }
 
 .th-8 .parallax-search8 img {
@@ -12309,7 +12304,7 @@ form label.error {
   width: 18px;
   height: 18px;
   border-radius: 50%;
-  border: 2px solid #FF385C;
+  border: 2px solid #1dbf73;
   cursor: w-resize;
   background: #fff;
   outline: none;
@@ -12332,7 +12327,7 @@ form label.error {
 }
 
 .th-8 .range-slider .ui-widget-header {
-  background-color: #FF385C;
+  background-color: #1dbf73;
 }
 
 .th-8 .range-slider .ui-slider.ui-state-disabled .ui-slider-handle,
@@ -18397,7 +18392,7 @@ header.payment-card-header .pull-right img {
 }
 
 .inner-pages.about .starts .fa {
-  color: #FF385C !important;
+  color: #1dbf73 !important;
 }
 
 @media screen and (max-width: 500px) {
@@ -20583,7 +20578,7 @@ form label.error {
   border: 1px solid #ccc;
   cursor: pointer;
   padding: 0;
-  color: #fa2964;
+  color: #1dbf73;
   width: 20px;
   height: 20px;
   color: #fff;
@@ -21625,7 +21620,7 @@ section.ui-element {
   display: inline-block;
   overflow: hidden;
   width: 100%;
-  background: #FF385C;
+  background: #1dbf73;
   border-radius: 9px;
 }
 
@@ -21644,7 +21639,7 @@ section.ui-element {
   text-align: center;
   border-radius: 9px;
   width: auto;
-  background: #FF385C;
+  background: #1dbf73;
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
