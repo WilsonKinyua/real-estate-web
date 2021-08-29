@@ -57,7 +57,7 @@
                     <div class="row">
                         <div class="col-lg-3 col-md-6">
                             <div class="netabout">
-                                <a href="index.html" class="logo">
+                                <a href="/" class="logo">
                                     <img src="{{ asset('images/logo-footer.svg')}}" alt="netcom">
                                 </a>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum incidunt architecto
@@ -91,7 +91,7 @@
                                 <h3>Navigation</h3>
                                 <div class="nav-footer">
                                     <ul>
-                                        <li><a href="index.html">Home One</a></li>
+                                        <li><a href="/">Home One</a></li>
                                         <li><a href="properties-right-sidebar.html">Properties Right</a></li>
                                         <li><a href="properties-full-list.html">Properties List</a></li>
                                         <li><a href="properties-details.html">Property Details</a></li>

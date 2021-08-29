@@ -13,11 +13,16 @@ Route::get('/home', function () {
 Route::get('property/{id}', 'HomepageController@property')->name('property.name');
 Route::post('property/store-inquiry', 'HomepageController@storeInquiry')->name('property.enquiry');
 Route::post('property/create-review', 'HomepageController@createPropertyReview')->name('property.review');
+Route::get('properties', 'HomepageController@allProperties')->name('all.properties');
+Route::get('about-us', 'HomepageController@aboutUs')->name('about.us');
+Route::get('blogs', 'HomepageController@allBlogs')->name('all.blogs');
+Route::get('contact-us', 'HomepageController@contactUs')->name('contact.us');
+Route::post('search', 'HomepageController@search')->name('search');
 
 Route::get('userVerification/{token}', 'UserVerificationController@approve')->name('userVerification');
 Auth::routes();
 
-Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'middleware' => ['auth']], function () {
+Route::group(['prefix' => 'app', 'as' => 'admin.', 'namespace' => 'Admin', 'middleware' => ['auth']], function () {
     Route::get('/', 'HomeController@index')->name('home');
     // Permissions
     Route::delete('permissions/destroy', 'PermissionsController@massDestroy')->name('permissions.massDestroy');

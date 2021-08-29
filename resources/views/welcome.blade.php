@@ -20,75 +20,28 @@
                                 <p class="mb-0">We Have Over Million Properties For You.</p>
                             </div>
                             <!--/ End Welcome Text -->
-                            <!-- Search Form -->
-                            <div class="trip-search vid">
-                                <form class="form">
-                                    <!-- Form Location -->
-                                    <div class="form-group location">
-                                        <div class="nice-select form-control wide" tabindex="0"><span class="current"><i
-                                                    class="fa fa-map-marker"></i>Location</span>
-                                            <ul class="list">
-                                                <li data-value="1" class="option selected ">New York</li>
-                                                <li data-value="2" class="option">Los Angeles</li>
-                                                <li data-value="3" class="option">Chicago</li>
-                                                <li data-value="3" class="option">Philadelphia</li>
-                                                <li data-value="3" class="option">San Francisco</li>
-                                                <li data-value="3" class="option">Miami</li>
-                                                <li data-value="3" class="option">Houston</li>
-                                            </ul>
+                            <div class="col-6" style="margin-left: 300px !important">
+                                <div class="banner-search-wrap">
+                                    <div class="tab-content">
+                                        <div class="tab-pane fade show active" id="tabs_1">
+                                            <div class="rld-main-search">
+                                                <form action="{{ route('search')}}" method="POST">
+                                                    @csrf
+                                                    <div class="row">
+                                                        <div class="rld-single-input">
+                                                            <input type="text" placeholder="Enter Keyword..." name="search"
+                                                                required>
+                                                        </div>
+                                                        <div class="col-xl-2 col-lg-2 col-md-4 pl-0">
+                                                            <button class="btn btn-yellow" type="submit">Search Now</button>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
                                         </div>
                                     </div>
-                                    <!--/ End Form Location -->
-                                    <!-- Form Property Type -->
-                                    <div class="form-group">
-                                        <div class="nice-select form-control wide" tabindex="0"><span class="current"><i
-                                                    class="fa fa-home"></i>Property Type</span>
-                                            <ul class="list">
-                                                <li data-value="1" class="option selected ">Family House</li>
-                                                <li data-value="2" class="option">Apartment</li>
-                                                <li data-value="3" class="option">Condo</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <!--/ End Form Property Type -->
-                                    <!-- Form Property Status -->
-                                    <div class="form-group duration">
-                                        <div class="nice-select form-control wide" tabindex="0"><span class="current"><i
-                                                    class="fa fa-home"></i>Property Status</span>
-                                            <ul class="list">
-                                                <li data-value="1" class="option selected ">For Sale</li>
-                                                <li data-value="2" class="option">For Rent</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <!--/ End Form Property Status -->
-                                    <!-- Form Bedrooms -->
-                                    <div class="form-group">
-                                        <div class="nice-select form-control wide" tabindex="0"><span class="current"><i
-                                                    class="fa fa-bed" aria-hidden="true"></i>Any Bedrooms</span>
-                                            <ul class="list">
-                                                <li data-value="1" class="option selected">1</li>
-                                                <li data-value="2" class="option">2</li>
-                                                <li data-value="3" class="option">3</li>
-                                                <li data-value="3" class="option">4</li>
-                                                <li data-value="3" class="option">5</li>
-                                                <li data-value="3" class="option">6</li>
-                                                <li data-value="3" class="option">7</li>
-                                                <li data-value="3" class="option">8</li>
-                                                <li data-value="3" class="option">9</li>
-                                                <li data-value="3" class="option">10</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <!--/ End Form Bedrooms -->
-                                    <!-- Form Button -->
-                                    <div class="form-group button">
-                                        <button type="submit" class="btn">Search</button>
-                                    </div>
-                                    <!--/ End Form Button -->
-                                </form>
+                                </div>
                             </div>
-                            <!--/ End Search Form -->
                         </div>
                     </div>
                 </div>
@@ -111,7 +64,7 @@
                             <div class="project-inner project-head">
                                 <div class="homes">
                                     <!-- homes img -->
-                                    <a href="{{ route('property.name', $property->id)}}" class="homes-img">
+                                    <a href="{{ route('property.name', $property->id) }}" class="homes-img">
                                         {{-- <div class="homes-tag button alt featured">{{ $property->feature_property ? 'Featured' : '' }}</div> --}}
                                         <div class="homes-tag button alt sale">{{ $property->type->name ?? '' }}</div>
                                         <div class="homes-price">Ksh {{ $property->property_price ?? '' }}/mo</div>
@@ -123,18 +76,22 @@
                                     </a>
                                 </div>
                                 <div class="button-effect">
-                                    <a href="{{ route('property.name', $property->id)}}" class="btn"><i class="fa fa-link"></i></a>
+                                    <a href="{{ route('property.name', $property->id) }}" class="btn"><i
+                                            class="fa fa-link"></i></a>
                                     <a href="{{ $property->property_video ?? '' }}"
                                         class="btn popup-video popup-youtube"><i class="fas fa-video"></i></a>
-                                    <a href="{{ route('property.name', $property->id)}}" class="img-poppu btn"><i class="fa fa-photo"></i></a>
+                                    <a href="{{ route('property.name', $property->id) }}" class="img-poppu btn"><i
+                                            class="fa fa-photo"></i></a>
                                 </div>
                             </div>
                             <!-- homes content -->
                             <div class="homes-content">
                                 <!-- homes address -->
-                                <h3><a href="{{ route('property.name', $property->id)}}">{{ $property->property_title ?? '' }}</a></h3>
+                                <h3><a
+                                        href="{{ route('property.name', $property->id) }}">{{ $property->property_title ?? '' }}</a>
+                                </h3>
                                 <p class="homes-address mb-3">
-                                    <a href="{{ route('property.name', $property->id)}}">
+                                    <a href="{{ route('property.name', $property->id) }}">
                                         <i class="fa fa-map-marker"></i><span>{{ $property->location ?? '' }}</span>
                                     </a>
                                 </p>
@@ -159,7 +116,7 @@
                 @endforeach
             </div>
             <div class="bg-all">
-                <a href="properties-full-grid-1.html" class="btn btn-outline-light">View All</a>
+                <a href="{{ route('all.properties') }}" class="btn btn-outline-light">View All</a>
             </div>
         </div>
     </section>
@@ -232,7 +189,7 @@
                                         <div class="homes">
                                             <!-- homes img -->
 
-                                            <a href="{{ route('property.name', $property->id)}}" class="homes-img">
+                                            <a href="{{ route('property.name', $property->id) }}" class="homes-img">
                                                 {{-- <div class="homes-tag button alt featured">Featured</div> --}}
                                                 <div class="homes-tag button alt sale">{{ $property->type->name ?? '' }}
                                                 </div>
@@ -245,19 +202,22 @@
                                             </a>
                                         </div>
                                         <div class="button-effect">
-                                            <a href="{{ route('property.name', $property->id)}}" class="btn"><i class="fa fa-link"></i></a>
+                                            <a href="{{ route('property.name', $property->id) }}" class="btn"><i
+                                                    class="fa fa-link"></i></a>
                                             <a href="{{ $property->property_video ?? '' }}"
                                                 class="btn popup-video popup-youtube"><i class="fas fa-video"></i></a>
-                                            <a href="{{ route('property.name', $property->id)}}" class="img-poppu btn"><i
-                                                    class="fa fa-photo"></i></a>
+                                            <a href="{{ route('property.name', $property->id) }}"
+                                                class="img-poppu btn"><i class="fa fa-photo"></i></a>
                                         </div>
                                     </div>
                                     <!-- homes content -->
                                     <div class="homes-content">
                                         <!-- homes address -->
-                                        <h3><a href="{{ route('property.name', $property->id)}}">{{ $property->type->name ?? '' }}</a></h3>
+                                        <h3><a
+                                                href="{{ route('property.name', $property->id) }}">{{ $property->type->name ?? '' }}</a>
+                                        </h3>
                                         <p class="homes-address mb-3">
-                                            <a href="{{ route('property.name', $property->id)}}">
+                                            <a href="{{ route('property.name', $property->id) }}">
                                                 <i
                                                     class="fa fa-map-marker"></i><span>{{ $property->location ?? '' }}</span>
                                             </a>
@@ -300,7 +260,7 @@
                     @foreach ($blogs as $key => $blog)
                         <div class="col-xl-4 col-md-6 col-xs-12">
                             <div class="news-item" data-aos="fade-up">
-                                <a href="blog-details.html" class="news-img-link">
+                                <a class="news-img-link">
                                     <div class="news-item-img">
                                         @if ($blog->photo)
                                             <img class="img-responsive" src="{{ $blog->photo->getUrl() }}"
@@ -310,7 +270,7 @@
                                     </div>
                                 </a>
                                 <div class="news-item-text">
-                                    <a href="blog-details.html">
+                                    <a>
                                         <h3>{{ $blog->title ?? '' }}</h3>
                                     </a>
                                     <div class="dates">
@@ -327,7 +287,7 @@
                                         {!! Str::limit($blog->description, 120) !!}
                                     </div>
                                     <div class="news-item-bottom">
-                                        <a href="blog-details.html" class="news-link">Read more...</a>
+                                        <a class="news-link">Read more...</a>
                                         {{-- <div class="admin">
                                             <p>By, Karl Smith</p>
                                             <img src="images/testimonials/ts-6.jpg" alt="">

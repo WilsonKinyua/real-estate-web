@@ -129,14 +129,8 @@
                             @endforeach
                         </ul>
                     </div>
-                    <div class="floor-plan property wprt-image-video w50 pro">
-                        <h5>Floor Plans</h5>
-                        @if ($property->floor_plans)
-                            <img alt="image" src="{{ $property->floor_plans->getUrl() }}">
-                        @endif
 
-                    </div>
-                    <div class="property wprt-image-video w50 pro">
+                    <div class="property wprt-image-video w50 pro mt-5">
                         <h5>Property Video</h5>
                         <img alt="image" src="{{ asset('images/slider/home-slider-4.jpg') }}">
                         <a class="icon-wrap popup-video popup-youtube" href="{{ $property->property_video }}">
@@ -147,6 +141,13 @@
                             <div class="waves wave-2"></div>
                             <div class="waves wave-3"></div>
                         </div>
+                    </div>
+                    <div class="floor-plan property wprt-image-video w50 pro">
+                        <h5>Floor Plans</h5>
+                        @if ($property->floor_plans)
+                            <img alt="image" src="{{ $property->floor_plans->getUrl() }}">
+                        @endif
+
                     </div>
                     {{-- <div class="property-location map">
                         <h5>Location</h5>

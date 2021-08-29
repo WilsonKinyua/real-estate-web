@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StorePropertyRequest;
 use App\Http\Requests\StorePropertyReviewRequest;
 use App\Http\Requests\StorePropoertyInquiryRequest;
+use App\Models\AboutUs;
 use App\Models\Blog;
 use App\Models\OurPartner;
 use App\Models\Property;
@@ -30,11 +31,10 @@ class HomepageController extends Controller
     public function property($id)
     {
         $property = Property::with(['type', 'tags', 'amenities', 'created_by', 'media'])->find($id);
-        $propertyReviews = PropertyReview::where('property_id' ,'=',$id)->with(['property', 'created_by'])->orderBy('id', 'asc')->get();
+        $propertyReviews = PropertyReview::where('property_id', '=', $id)->with(['property', 'created_by'])->orderBy('id', 'asc')->get();
 
         return view('property', compact('property', 'propertyReviews'));
     }
-    // StorePropoertyInquiryRequest
     public function storeInquiry(StorePropoertyInquiryRequest $request)
     {
         $propoertyInquiry = PropoertyInquiry::create($request->all());
@@ -46,14 +46,47 @@ class HomepageController extends Controller
     {
         $propertyReview = PropertyReview::create($request->all());
 
-        // foreach ($request->input('photos', []) as $file) {
-        //     $propertyReview->addMedia(storage_path('tmp/uploads/' . basename($file)))->toMediaCollection('photos');
-        // }
-
-        // if ($media = $request->input('ck-media', false)) {
-        //     Media::whereIn('id', $media)->update(['model_id' => $propertyReview->id]);
-        // }
-
         return redirect()->back();
+    }
+
+
+    public function allProperties()
+    {
+        $properties_all = Property::with(['type', 'tags', 'amenities', 'created_by', 'media'])->orderBy('id', 'asc')->get();
+        return view('all-properties', compact('properties_all'));
+    }
+
+    public function aboutUs()
+    {
+        $about = AboutUs::orderBy('id', 'desc')->limit(1)->get();
+        return view('about', compact('about'));
+    }
+
+    public function allBlogs()
+    {
+        $blogs = Blog::orderBy('id', 'desc')->get();
+        return view('blog', compact('blogs'));
+    }
+
+    public function contactUs()
+    {
+        return view('contact-us');
+    }
+
+    public function search(Request $request)
+    {
+        $search = $request->search;
+        $properties = Property::where('property_title', 'like', '%' . $search . '%')
+            ->orWhere('property_description', 'like', '%' . $search . '%')
+            ->orWhere('rooms', 'like', '%' . $search . '%')
+            ->orWhere('property_price', 'like', '%' . $search . '%')
+            ->orWhere('per', 'like', '%' . $search . '%')
+            ->orWhere('year_built', 'like', '%' . $search . '%')
+            ->orWhere('area', 'like', '%' . $search . '%')
+            ->orWhere('status', 'like', '%' . $search . '%')
+            ->orWhere('available', 'like', '%' . $search . '%')
+            ->orWhere('location', 'like', '%' . $search . '%')
+            ->get();
+        return view('search', compact('properties'));
     }
 }
