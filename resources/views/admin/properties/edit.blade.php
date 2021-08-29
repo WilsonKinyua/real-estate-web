@@ -20,6 +20,18 @@
                 @endif
                 <span class="help-block">{{ trans('cruds.property.fields.property_title_helper') }}</span>
             </div>
+            <input type="hidden" name="created_by_id" id="created_by_id" value="{{ Auth::user()->id }}">
+            <div class="form-group">
+                <label class="required" for="property_main_photo">{{ trans('cruds.property.fields.property_main_photo') }}</label>
+                <div class="needsclick dropzone {{ $errors->has('property_main_photo') ? 'is-invalid' : '' }}" id="property_main_photo-dropzone">
+                </div>
+                @if($errors->has('property_main_photo'))
+                    <div class="invalid-feedback">
+                        {{ $errors->first('property_main_photo') }}
+                    </div>
+                @endif
+                <span class="help-block">{{ trans('cruds.property.fields.property_main_photo_helper') }}</span>
+            </div>
             <div class="form-group">
                 <label for="property_description">{{ trans('cruds.property.fields.property_description') }}</label>
                 <textarea class="form-control ckeditor {{ $errors->has('property_description') ? 'is-invalid' : '' }}" name="property_description" id="property_description">{!! old('property_description', $property->property_description) !!}</textarea>
@@ -80,6 +92,16 @@
                 <span class="help-block">{{ trans('cruds.property.fields.per_helper') }}</span>
             </div>
             <div class="form-group">
+                <label class="required" for="google_map_location">{{ trans('cruds.property.fields.google_map_location') }}</label>
+                <textarea class="form-control {{ $errors->has('google_map_location') ? 'is-invalid' : '' }}" name="google_map_location" id="google_map_location" required>{{ old('google_map_location', $property->google_map_location) }}</textarea>
+                @if($errors->has('google_map_location'))
+                    <div class="invalid-feedback">
+                        {{ $errors->first('google_map_location') }}
+                    </div>
+                @endif
+                <span class="help-block">{{ trans('cruds.property.fields.google_map_location_helper') }}</span>
+            </div>
+            <div class="form-group">
                 <label class="required" for="year_built">{{ trans('cruds.property.fields.year_built') }}</label>
                 <input class="form-control date {{ $errors->has('year_built') ? 'is-invalid' : '' }}" type="text" name="year_built" id="year_built" value="{{ old('year_built', $property->year_built) }}" required>
                 @if($errors->has('year_built'))
@@ -98,16 +120,6 @@
                     </div>
                 @endif
                 <span class="help-block">{{ trans('cruds.property.fields.area_helper') }}</span>
-            </div>
-            <div class="form-group">
-                <label class="required" for="google_map_location">{{ trans('cruds.property.fields.google_map_location') }}</label>
-                <input class="form-control {{ $errors->has('google_map_location') ? 'is-invalid' : '' }}" type="text" name="google_map_location" id="google_map_location" value="{{ old('google_map_location', $property->google_map_location) }}" required>
-                @if($errors->has('google_map_location'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('google_map_location') }}
-                    </div>
-                @endif
-                <span class="help-block">{{ trans('cruds.property.fields.google_map_location_helper') }}</span>
             </div>
             <div class="form-group">
                 <label class="required" for="property_photos">{{ trans('cruds.property.fields.property_photos') }}</label>
@@ -241,6 +253,60 @@
 @endsection
 
 @section('scripts')
+<script>
+    Dropzone.options.propertyMainPhotoDropzone = {
+    url: '{{ route('admin.properties.storeMedia') }}',
+    maxFilesize: 10, // MB
+    acceptedFiles: '.jpeg,.jpg,.png,.gif',
+    maxFiles: 1,
+    addRemoveLinks: true,
+    headers: {
+      'X-CSRF-TOKEN': "{{ csrf_token() }}"
+    },
+    params: {
+      size: 10,
+      width: 4096,
+      height: 4096
+    },
+    success: function (file, response) {
+      $('form').find('input[name="property_main_photo"]').remove()
+      $('form').append('<input type="hidden" name="property_main_photo" value="' + response.name + '">')
+    },
+    removedfile: function (file) {
+      file.previewElement.remove()
+      if (file.status !== 'error') {
+        $('form').find('input[name="property_main_photo"]').remove()
+        this.options.maxFiles = this.options.maxFiles + 1
+      }
+    },
+    init: function () {
+@if(isset($property) && $property->property_main_photo)
+      var file = {!! json_encode($property->property_main_photo) !!}
+          this.options.addedfile.call(this, file)
+      this.options.thumbnail.call(this, file, file.preview)
+      file.previewElement.classList.add('dz-complete')
+      $('form').append('<input type="hidden" name="property_main_photo" value="' + file.file_name + '">')
+      this.options.maxFiles = this.options.maxFiles - 1
+@endif
+    },
+    error: function (file, response) {
+        if ($.type(response) === 'string') {
+            var message = response //dropzone sends it's own error messages in string
+        } else {
+            var message = response.errors.file
+        }
+        file.previewElement.classList.add('dz-error')
+        _ref = file.previewElement.querySelectorAll('[data-dz-errormessage]')
+        _results = []
+        for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+            node = _ref[_i]
+            _results.push(node.textContent = message)
+        }
+
+        return _results
+    }
+}
+</script>
 <script>
     $(document).ready(function () {
   function SimpleUploadAdapter(editor) {

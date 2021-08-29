@@ -34,6 +34,7 @@ class Property extends Model implements HasMedia
     public $table = 'properties';
 
     protected $appends = [
+        'property_main_photo',
         'property_photos',
         'floor_plans',
     ];
@@ -52,9 +53,9 @@ class Property extends Model implements HasMedia
         'rooms',
         'property_price',
         'per',
+        'google_map_location',
         'year_built',
         'area',
-        'google_map_location',
         'property_video',
         'status',
         'available',
@@ -70,6 +71,18 @@ class Property extends Model implements HasMedia
     {
         $this->addMediaConversion('thumb')->fit('crop', 50, 50);
         $this->addMediaConversion('preview')->fit('crop', 120, 120);
+    }
+
+    public function getPropertyMainPhotoAttribute()
+    {
+        $file = $this->getMedia('property_main_photo')->last();
+        if ($file) {
+            $file->url       = $file->getUrl();
+            $file->thumbnail = $file->getUrl('thumb');
+            $file->preview   = $file->getUrl('preview');
+        }
+
+        return $file;
     }
 
     public function type()

@@ -33,6 +33,18 @@
                     </tr>
                     <tr>
                         <th>
+                            {{ trans('cruds.property.fields.property_main_photo') }}
+                        </th>
+                        <td>
+                            @if($property->property_main_photo)
+                                <a href="{{ $property->property_main_photo->getUrl() }}" target="_blank" style="display: inline-block">
+                                    <img src="{{ $property->property_main_photo->getUrl('thumb') }}">
+                                </a>
+                            @endif
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
                             {{ trans('cruds.property.fields.property_description') }}
                         </th>
                         <td>
@@ -73,6 +85,14 @@
                     </tr>
                     <tr>
                         <th>
+                            {{ trans('cruds.property.fields.google_map_location') }}
+                        </th>
+                        <td>
+                            {{ $property->google_map_location }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
                             {{ trans('cruds.property.fields.year_built') }}
                         </th>
                         <td>
@@ -85,14 +105,6 @@
                         </th>
                         <td>
                             {{ $property->area }}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>
-                            {{ trans('cruds.property.fields.google_map_location') }}
-                        </th>
-                        <td>
-                            {{ $property->google_map_location }}
                         </td>
                     </tr>
                     <tr>

@@ -9,7 +9,7 @@
              <div class="left-side">
                  <!-- Logo -->
                  <div id="logo">
-                     <a href="index.html"><img src="images/logo-red.svg" alt=""></a>
+                     <a href="index.html"><img src="{{ asset('images/logo-red.svg')}}" alt=""></a>
                  </div>
                  <!-- Mobile Navigation -->
                  <div class="mmenu-trigger">
@@ -203,7 +203,7 @@
              <!-- Right Side Content / End -->
              <div class="header-user-menu user-menu add">
                  <div class="header-user-name">
-                     <span><img src="images/testimonials/ts-1.jpg" alt=""></span>Hi, Mary!
+                     <span><img src="{{ asset('images/testimonials/ts-1.jpg')}}" alt=""></span>Hi, Mary!
                  </div>
                  <ul>
                      <li><a href="user-profile.html"> Edit profile</a></li>

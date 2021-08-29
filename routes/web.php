@@ -10,6 +10,10 @@ Route::get('/home', function () {
     return redirect()->route('admin.home');
 });
 
+Route::get('property/{id}', 'HomepageController@property')->name('property.name');
+Route::post('property/store-inquiry', 'HomepageController@storeInquiry')->name('property.enquiry');
+Route::post('property/create-review', 'HomepageController@createPropertyReview')->name('property.review');
+
 Route::get('userVerification/{token}', 'UserVerificationController@approve')->name('userVerification');
 Auth::routes();
 

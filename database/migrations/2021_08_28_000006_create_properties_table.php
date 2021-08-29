@@ -15,9 +15,9 @@ class CreatePropertiesTable extends Migration
             $table->integer('rooms');
             $table->decimal('property_price', 15, 2);
             $table->string('per');
+            $table->longText('google_map_location');
             $table->date('year_built');
             $table->integer('area');
-            $table->string('google_map_location');
             $table->string('property_video');
             $table->string('status')->nullable();
             $table->boolean('available')->default(0);

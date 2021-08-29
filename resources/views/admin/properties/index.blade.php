@@ -29,6 +29,9 @@
                             {{ trans('cruds.property.fields.property_title') }}
                         </th>
                         <th>
+                            {{ trans('cruds.property.fields.property_main_photo') }}
+                        </th>
+                        <th>
                             {{ trans('cruds.property.fields.type') }}
                         </th>
                         <th>
@@ -41,13 +44,13 @@
                             {{ trans('cruds.property.fields.per') }}
                         </th>
                         <th>
+                            {{ trans('cruds.property.fields.google_map_location') }}
+                        </th>
+                        <th>
                             {{ trans('cruds.property.fields.year_built') }}
                         </th>
                         <th>
                             {{ trans('cruds.property.fields.area') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.property.fields.google_map_location') }}
                         </th>
                         <th>
                             {{ trans('cruds.property.fields.property_photos') }}
@@ -94,6 +97,13 @@
                                 {{ $property->property_title ?? '' }}
                             </td>
                             <td>
+                                @if($property->property_main_photo)
+                                    <a href="{{ $property->property_main_photo->getUrl() }}" target="_blank" style="display: inline-block">
+                                        <img src="{{ $property->property_main_photo->getUrl('thumb') }}">
+                                    </a>
+                                @endif
+                            </td>
+                            <td>
                                 {{ $property->type->name ?? '' }}
                             </td>
                             <td>
@@ -106,13 +116,13 @@
                                 {{ App\Models\Property::PER_SELECT[$property->per] ?? '' }}
                             </td>
                             <td>
+                                {{ $property->google_map_location ?? '' }}
+                            </td>
+                            <td>
                                 {{ $property->year_built ?? '' }}
                             </td>
                             <td>
                                 {{ $property->area ?? '' }}
-                            </td>
-                            <td>
-                                {{ $property->google_map_location ?? '' }}
                             </td>
                             <td>
                                 @foreach($property->property_photos as $key => $media)
@@ -226,7 +236,7 @@
 
   $.extend(true, $.fn.dataTable.defaults, {
     orderCellsTop: true,
-    order: [[ 2, 'asc' ]],
+    order: [[ 1, 'asc' ]],
     pageLength: 100,
   });
   let table = $('.datatable-Property:not(.ajaxTable)').DataTable({ buttons: dtButtons })

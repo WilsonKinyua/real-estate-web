@@ -22,6 +22,9 @@ class StorePropertyRequest extends FormRequest
                 'required',
                 'unique:properties',
             ],
+            'property_main_photo' => [
+                'required',
+            ],
             'property_description' => [
                 'required',
             ],
@@ -41,6 +44,9 @@ class StorePropertyRequest extends FormRequest
             'per' => [
                 'required',
             ],
+            'google_map_location' => [
+                'required',
+            ],
             'year_built' => [
                 'required',
                 'date_format:' . config('panel.date_format'),
@@ -50,10 +56,6 @@ class StorePropertyRequest extends FormRequest
                 'integer',
                 'min:-2147483648',
                 'max:2147483647',
-            ],
-            'google_map_location' => [
-                'string',
-                'required',
             ],
             'property_photos.*' => [
                 'required',

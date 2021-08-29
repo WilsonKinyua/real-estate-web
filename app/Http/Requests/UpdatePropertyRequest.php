@@ -41,6 +41,9 @@ class UpdatePropertyRequest extends FormRequest
             'per' => [
                 'required',
             ],
+            'google_map_location' => [
+                'required',
+            ],
             'year_built' => [
                 'required',
                 'date_format:' . config('panel.date_format'),
@@ -50,10 +53,6 @@ class UpdatePropertyRequest extends FormRequest
                 'integer',
                 'min:-2147483648',
                 'max:2147483647',
-            ],
-            'google_map_location' => [
-                'string',
-                'required',
             ],
             'property_video' => [
                 'string',

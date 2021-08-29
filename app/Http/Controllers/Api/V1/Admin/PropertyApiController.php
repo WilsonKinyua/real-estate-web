@@ -28,6 +28,10 @@ class PropertyApiController extends Controller
         $property = Property::create($request->all());
         $property->tags()->sync($request->input('tags', []));
         $property->amenities()->sync($request->input('amenities', []));
+        if ($request->input('property_main_photo', false)) {
+            $property->addMedia(storage_path('tmp/uploads/' . basename($request->input('property_main_photo'))))->toMediaCollection('property_main_photo');
+        }
+
         if ($request->input('property_photos', false)) {
             $property->addMedia(storage_path('tmp/uploads/' . basename($request->input('property_photos'))))->toMediaCollection('property_photos');
         }
@@ -53,6 +57,17 @@ class PropertyApiController extends Controller
         $property->update($request->all());
         $property->tags()->sync($request->input('tags', []));
         $property->amenities()->sync($request->input('amenities', []));
+        if ($request->input('property_main_photo', false)) {
+            if (!$property->property_main_photo || $request->input('property_main_photo') !== $property->property_main_photo->file_name) {
+                if ($property->property_main_photo) {
+                    $property->property_main_photo->delete();
+                }
+                $property->addMedia(storage_path('tmp/uploads/' . basename($request->input('property_main_photo'))))->toMediaCollection('property_main_photo');
+            }
+        } elseif ($property->property_main_photo) {
+            $property->property_main_photo->delete();
+        }
+
         if ($request->input('property_photos', false)) {
             if (!$property->property_photos || $request->input('property_photos') !== $property->property_photos->file_name) {
                 if ($property->property_photos) {
