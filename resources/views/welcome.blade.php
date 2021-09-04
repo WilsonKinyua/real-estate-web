@@ -286,13 +286,13 @@
                                     <div class="news-item-descr big-news">
                                         {!! Str::limit($blog->description, 120) !!}
                                     </div>
-                                    <div class="news-item-bottom">
+                                    {{-- <div class="news-item-bottom">
                                         <a class="news-link">Read more...</a>
-                                        {{-- <div class="admin">
+                                        <div class="admin">
                                             <p>By, Karl Smith</p>
                                             <img src="images/testimonials/ts-6.jpg" alt="">
-                                        </div> --}}
-                                    </div>
+                                        </div>
+                                    </div> --}}
                                 </div>
                             </div>
                         </div>

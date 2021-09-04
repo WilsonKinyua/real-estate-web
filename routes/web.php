@@ -70,6 +70,11 @@ Route::group(['prefix' => 'app', 'as' => 'admin.', 'namespace' => 'Admin', 'midd
     Route::post('properties/media', 'PropertyController@storeMedia')->name('properties.storeMedia');
     Route::post('properties/ckmedia', 'PropertyController@storeCKEditorImages')->name('properties.storeCKEditorImages');
     Route::resource('properties', 'PropertyController');
+    Route::get('properties/send/message', 'PropertyController@sendMessage')->name('property.send-message');
+    
+    // Messages
+    Route::delete('messages/destroy', 'MessagesController@massDestroy')->name('messages.massDestroy');
+    Route::resource('messages', 'MessagesController');
 
     // Amenities
     Route::delete('amenities/destroy', 'AmenitiesController@massDestroy')->name('amenities.massDestroy');

@@ -1,50 +1,38 @@
 @extends('layouts.admin')
 @section('content')
-@can('propoerty_inquiry_create')
+@can('message_create')
     <div style="margin-bottom: 10px;" class="row">
         <div class="col-lg-12">
-            {{-- <a class="btn btn-success btn-lg" href="{{ route('admin.propoerty-inquiries.create') }}">
-                {{ trans('global.add') }} {{ trans('cruds.propoertyInquiry.title_singular') }}
-            </a> --}}
-            <a class="btn btn-info btn-lg" href="{{ route('admin.property.send-message') }}">
-                Send Message
-            </a>
-            <a class="btn btn-info btn-lg" href="{{ route('admin.messages.index') }}">
-                View Sent Messages
+            <a class="btn btn-success" href="{{ route('admin.messages.create') }}">
+                {{ trans('global.add') }} {{ trans('cruds.message.title_singular') }}
             </a>
         </div>
     </div>
 @endcan
 <div class="card">
     <div class="card-header">
-        {{ trans('cruds.propoertyInquiry.title_singular') }} {{ trans('global.list') }}
+        {{ trans('cruds.message.title_singular') }} {{ trans('global.list') }}
     </div>
 
     <div class="card-body">
         <div class="table-responsive">
-            <table class=" table table-bordered table-striped table-hover datatable datatable-PropoertyInquiry">
+            <table class=" table table-bordered table-striped table-hover datatable datatable-Message">
                 <thead>
                     <tr>
                         <th width="10">
 
                         </th>
                         <th>
-                            {{ trans('cruds.propoertyInquiry.fields.id') }}
+                            {{ trans('cruds.message.fields.id') }}
                         </th>
                         <th>
-                            {{ trans('cruds.propoertyInquiry.fields.property') }}
+                            {{ trans('cruds.message.fields.full_name') }}
                         </th>
                         <th>
-                            {{ trans('cruds.propoertyInquiry.fields.full_name') }}
+                            {{ trans('cruds.message.fields.phone_number') }}
                         </th>
                         <th>
-                            {{ trans('cruds.propoertyInquiry.fields.phone_number') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.propoertyInquiry.fields.email_address') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.propoertyInquiry.fields.message') }}
+                            {{ trans('cruds.message.fields.message') }}
                         </th>
                         <th>
                             &nbsp;
@@ -52,44 +40,38 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($propoertyInquiries as $key => $propoertyInquiry)
-                        <tr data-entry-id="{{ $propoertyInquiry->id }}">
+                    @foreach($messages as $key => $message)
+                        <tr data-entry-id="{{ $message->id }}">
                             <td>
 
                             </td>
                             <td>
-                                {{ $propoertyInquiry->id ?? '' }}
+                                {{ $message->id ?? '' }}
                             </td>
                             <td>
-                                {{ $propoertyInquiry->property->property_title ?? '' }}
+                                {{ $message->full_name ?? '' }}
                             </td>
                             <td>
-                                {{ $propoertyInquiry->full_name ?? '' }}
+                                {{ $message->phone_number ?? '' }}
                             </td>
                             <td>
-                                {{ $propoertyInquiry->phone_number ?? '' }}
+                                {{ $message->message ?? '' }}
                             </td>
                             <td>
-                                {{ $propoertyInquiry->email_address ?? '' }}
-                            </td>
-                            <td>
-                                {{ $propoertyInquiry->message ?? '' }}
-                            </td>
-                            <td>
-                                @can('propoerty_inquiry_show')
-                                    <a class="btn btn-xs btn-primary" href="{{ route('admin.propoerty-inquiries.show', $propoertyInquiry->id) }}">
+                                @can('message_show')
+                                    <a class="btn btn-xs btn-primary" href="{{ route('admin.messages.show', $message->id) }}">
                                         {{ trans('global.view') }}
                                     </a>
                                 @endcan
 
-                                {{-- @can('propoerty_inquiry_edit')
-                                    <a class="btn btn-xs btn-info" href="{{ route('admin.propoerty-inquiries.edit', $propoertyInquiry->id) }}">
+                                @can('message_edit')
+                                    <a class="btn btn-xs btn-info" href="{{ route('admin.messages.edit', $message->id) }}">
                                         {{ trans('global.edit') }}
                                     </a>
-                                @endcan --}}
+                                @endcan
 
-                                @can('propoerty_inquiry_delete')
-                                    <form action="{{ route('admin.propoerty-inquiries.destroy', $propoertyInquiry->id) }}" method="POST" onsubmit="return confirm('{{ trans('global.areYouSure') }}');" style="display: inline-block;">
+                                @can('message_delete')
+                                    <form action="{{ route('admin.messages.destroy', $message->id) }}" method="POST" onsubmit="return confirm('{{ trans('global.areYouSure') }}');" style="display: inline-block;">
                                         <input type="hidden" name="_method" value="DELETE">
                                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                         <input type="submit" class="btn btn-xs btn-danger" value="{{ trans('global.delete') }}">
@@ -114,11 +96,11 @@
 <script>
     $(function () {
   let dtButtons = $.extend(true, [], $.fn.dataTable.defaults.buttons)
-@can('propoerty_inquiry_delete')
+@can('message_delete')
   let deleteButtonTrans = '{{ trans('global.datatables.delete') }}'
   let deleteButton = {
     text: deleteButtonTrans,
-    url: "{{ route('admin.propoerty-inquiries.massDestroy') }}",
+    url: "{{ route('admin.messages.massDestroy') }}",
     className: 'btn-danger',
     action: function (e, dt, node, config) {
       var ids = $.map(dt.rows({ selected: true }).nodes(), function (entry) {
@@ -149,12 +131,12 @@
     order: [[ 2, 'asc' ]],
     pageLength: 100,
   });
-  let table = $('.datatable-PropoertyInquiry:not(.ajaxTable)').DataTable({ buttons: dtButtons })
+  let table = $('.datatable-Message:not(.ajaxTable)').DataTable({ buttons: dtButtons })
   $('a[data-toggle="tab"]').on('shown.bs.tab click', function(e){
       $($.fn.dataTable.tables(true)).DataTable()
           .columns.adjust();
   });
-
+  
 })
 
 </script>

@@ -161,4 +161,10 @@ class PropertyController extends Controller
 
         return response()->json(['id' => $media->id, 'url' => $media->getUrl()], Response::HTTP_CREATED);
     }
+
+
+    // message page
+    public function sendMessage() {
+        return view('admin.properties.send-message');
+    }
 }

@@ -49,8 +49,10 @@
              <div class="right-side d-none d-none d-lg-none d-xl-flex">
                  <!-- Header Widget -->
                  <div class="header-widget">
+                 @if (!Auth::check())
                      <a href="{{ route('login')}}" class="button border">Sign In<i
                              class="fas fa-laptop-house ml-2"></i></a>
+                 @endif
                  </div>
                  <!-- Header Widget / End -->
              </div>

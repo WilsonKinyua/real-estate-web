@@ -92,17 +92,17 @@
                                 <div class="nav-footer">
                                     <ul>
                                         <li><a href="/">Home One</a></li>
-                                        <li><a href="properties-right-sidebar.html">Properties Right</a></li>
-                                        <li><a href="properties-full-list.html">Properties List</a></li>
-                                        <li><a href="properties-details.html">Property Details</a></li>
-                                        <li class="no-mgb"><a href="agents-listing-grid.html">Agents Listing</a></li>
+                                        <li><a href="#">Properties Right</a></li>
+                                        <li><a href="#">Properties List</a></li>
+                                        <li><a href="#">Property Details</a></li>
+                                        <li class="no-mgb"><a href="#">Agents Listing</a></li>
                                     </ul>
                                     <ul class="nav-right">
-                                        <li><a href="agent-details.html">Agents Details</a></li>
-                                        <li><a href="about.html">About Us</a></li>
-                                        <li><a href="blog.html">Blog Default</a></li>
-                                        <li><a href="blog-details.html">Blog Details</a></li>
-                                        <li class="no-mgb"><a href="contact-us.html">Contact Us</a></li>
+                                        <li><a href="#">Agents Details</a></li>
+                                        <li><a href="#">About Us</a></li>
+                                        <li><a href="#">Blog Default</a></li>
+                                        <li><a href="#">Blog Details</a></li>
+                                        <li class="no-mgb"><a href="#">Contact Us</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -127,12 +127,10 @@
                                 <p>Sign Up for Our Newsletter to get Latest Updates and Offers. Subscribe to receive
                                     news in your inbox.</p>
                             </div>
-                            <form class="bloq-email mailchimp form-inline" method="post">
-                                <label for="subscribeEmail" class="error"></label>
+                            <form class="bloq-email form-inline" method="post">
                                 <div class="email">
                                     <input type="email" id="subscribeEmail" name="EMAIL" placeholder="Enter Your Email">
                                     <input type="submit" value="Subscribe">
-                                    <p class="subscription-success"></p>
                                 </div>
                             </form>
                         </div>

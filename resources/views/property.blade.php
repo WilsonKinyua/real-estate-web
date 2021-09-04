@@ -43,8 +43,8 @@
                                 <div class="carousel-inner">
                                     @if ($property->property_main_photo)
                                         <div class="active item carousel-item" data-slide-number="0">
-                                            <img src="{{ $property->property_main_photo->getUrl() }}" class="img-fluid"
-                                                alt="slider-listing">
+                                            <img src="{{ $property->property_main_photo->getUrl() }}"
+                                                class="img-fluid" alt="slider-listing">
                                         </div>
                                     @endif
                                     @foreach ($property->property_photos as $key => $media)
@@ -74,7 +74,8 @@
                                         <li class="list-inline-item">
                                             <a id="carousel-selector-1" data-slide-to="{{ $property->id }}"
                                                 data-target="#listingDetailsSlider">
-                                                <img src="{{ $media->getUrl() }}" class="img-fluid" alt="listing-small">
+                                                <img src="{{ $media->getUrl() }}" class="img-fluid"
+                                                    alt="listing-small">
                                             </a>
                                         </li>
                                     @endforeach
@@ -158,51 +159,51 @@
                     <section class="reviews comments">
                         <h3 class="mb-5">Reviews</h3>
                         @foreach ($propertyReviews as $reviews)
-                        <div class="row m-4">
-                            <ul class="col-12 commented pl-0">
-                                <li class="comm-inf">
-                                    {{-- <div class="col-md-2">
+                            <div class="row m-4">
+                                <ul class="col-12 commented pl-0">
+                                    <li class="comm-inf">
+                                        {{-- <div class="col-md-2">
                                         <img src="images/testimonials/ts-5.jpg" class="img-fluid" alt="">
                                     </div> --}}
-                                    <div class="col-md-10 comments-info">
-                                        <div class="conra">
-                                            <h5 class="mb-2">{{ $reviews->full_name}}</h5>
-                                            <div class="rating-box">
-                                                <div class="detail-list-rating mr-0">
-                                                    @if ($reviews->ratings == 1)
-                                                        <i class="fa fa-star"></i>
-                                                     @elseif ($reviews->rating == 2)
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                     @elseif ($reviews->ratings == 3)
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                     @elseif ($reviews->ratings == 4)
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                     @elseif ($reviews->ratings == 5)
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                    @endif
+                                        <div class="col-md-10 comments-info">
+                                            <div class="conra">
+                                                <h5 class="mb-2">{{ $reviews->full_name }}</h5>
+                                                <div class="rating-box">
+                                                    <div class="detail-list-rating mr-0">
+                                                        @if ($reviews->ratings == 1)
+                                                            <i class="fa fa-star"></i>
+                                                        @elseif ($reviews->rating == 2)
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                        @elseif ($reviews->ratings == 3)
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                        @elseif ($reviews->ratings == 4)
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                        @elseif ($reviews->ratings == 5)
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                        @endif
 
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <p class="mb-4">{{  $reviews->created_at->diffForHumans()}}</p>
-                                        <p>{{  $reviews->review}}</p>
-                                        {{-- <div class="rest"><img src="images/single-property/s-1.jpg" class="img-fluid"
+                                            <p class="mb-4">{{ $reviews->created_at->diffForHumans() }}</p>
+                                            <p>{{ $reviews->review }}</p>
+                                            {{-- <div class="rest"><img src="images/single-property/s-1.jpg" class="img-fluid"
                                                 alt=""></div> --}}
-                                    </div>
-                                </li>
+                                        </div>
+                                    </li>
 
-                            </ul>
-                        </div>
+                                </ul>
+                            </div>
                         @endforeach
 
                     </section>
@@ -212,153 +213,156 @@
                         <div id="add-review" class="add-review-box">
                             <!-- Add Review -->
                             <h3 class="listing-desc-headline margin-bottom-20 mb-4">Add Review</h3>
-                            <span class="leave-rating-title">Your rating for this listing</span>
-                            <!-- Rating / Upload Button -->
-                            <form action="{{ route('property.review')}}" method="post">
-                                @csrf
-                            <div class="row mb-4">
-                                <div class="col-md-12">
-                                    <!-- Leave Rating -->
-                                    <div class="clearfix"></div>
-                                    <div class="leave-rating margin-bottom-30">
-                                        <input type="radio" name="ratings" id="rating-1" value="1" />
-                                        <label for="rating-1" class="fa fa-star"></label>
-                                        <input type="radio" name="ratings" id="rating-2" value="2" />
-                                        <label for="rating-2" class="fa fa-star"></label>
-                                        <input type="radio" name="ratings" id="rating-3" value="3" />
-                                        <label for="rating-3" class="fa fa-star"></label>
-                                        <input type="radio" name="ratings" id="rating-4" value="4" />
-                                        <label for="rating-4" class="fa fa-star"></label>
-                                        <input type="radio" name="ratings" id="rating-5" value="5" />
-                                        <label for="rating-5" class="fa fa-star"></label>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                </div>
-                                {{-- <div class="col-md-6">
-                                    <!-- Uplaod Photos -->
-                                    <div class="add-review-photos margin-bottom-30">
-                                        <div class="photoUpload">
-                                            <span><i class="sl sl-icon-arrow-up-circle"></i> Upload Photos</span>
-                                            <input type="file" class="upload" />
+                            @if (Auth::check())
+                                <span class="leave-rating-title">Your rating for this property</span>
+                                <!-- Rating / Upload Button -->
+                                <form action="{{ route('property.review') }}" method="post">
+                                    @csrf
+                                    <div class="row mb-4">
+                                        <div class="col-md-12">
+                                            <!-- Leave Rating -->
+                                            <div class="clearfix"></div>
+                                            <div class="leave-rating margin-bottom-30">
+                                                <input type="radio" name="ratings" id="rating-1" value="1" />
+                                                <label for="rating-1" class="fa fa-star"></label>
+                                                <input type="radio" name="ratings" id="rating-2" value="2" />
+                                                <label for="rating-2" class="fa fa-star"></label>
+                                                <input type="radio" name="ratings" id="rating-3" value="3" />
+                                                <label for="rating-3" class="fa fa-star"></label>
+                                                <input type="radio" name="ratings" id="rating-4" value="4" />
+                                                <label for="rating-4" class="fa fa-star"></label>
+                                                <input type="radio" name="ratings" id="rating-5" value="5" />
+                                                <label for="rating-5" class="fa fa-star"></label>
+                                            </div>
+                                            <div class="clearfix"></div>
                                         </div>
+                                        {{-- <div class="col-md-6">
+                                   <!-- Uplaod Photos -->
+                                   <div class="add-review-photos margin-bottom-30">
+                                       <div class="photoUpload">
+                                           <span><i class="sl sl-icon-arrow-up-circle"></i> Upload Photos</span>
+                                           <input type="file" class="upload" />
+                                       </div>
+                                   </div>
+                               </div> --}}
                                     </div>
-                                </div> --}}
+                                    <div class="row">
+                                        <div class="col-md-12 data">
+                                            {{-- <form action="#"> --}}
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <input type="text" name="full_name" class="form-control"
+                                                        placeholder="First Name" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <input type="text" name="name" class="form-control"
+                                                        placeholder="Last Name" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <input type="email" name="email" class="form-control"
+                                                        placeholder="Email" required>
+                                                </div>
+                                            </div>
+                                            <input type="hidden" name="property_id" value="{{ $property->id }}">
+                                            <div class="col-md-12 form-group">
+                                                <textarea class="form-control" name="review" id="exampleTextarea"
+                                                    rows="8" placeholder="Review" required></textarea>
+                                            </div>
+                                            <button type="submit" class="btn btn-lg mt-2">Submit
+                                                Review</button>
+                                </form>
+                        </div>
+                </div>
+            @else
+                <a href="/login" class="btn btn-lg btn-block mt-3">Sign in to review</a>
+                @endif
+            </div>
+    </section>
+    <!-- End Add Review -->
+    </div>
+    <aside class="col-lg-4 col-md-12 car">
+        <div class="single widget">
+            <!-- End: Schedule a Tour -->
+            <!-- end author-verified-badge -->
+            <div class="sidebar">
+                <div class="widget-boxed mt-33 mt-5">
+                    <div class="widget-boxed-header">
+                        <h4>Owner Information</h4>
+                    </div>
+                    <div class="widget-boxed-body">
+                        <div class="sidebar-widget author-widget2">
+                            <div class="author-box clearfix text-center">
+                                {{-- <img src="http://itaraheroku.herokuapp.com/static/tenant/ltr/assets/images/faces/male/1.jpg" alt="author-image" class="author__img"> --}}
+                                <h4 class="author__title">{{ $property->created_by->name ?? '' }}</h4>
                             </div>
-                            <div class="row">
-                                <div class="col-md-12 data">
-                                    {{-- <form action="#"> --}}
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <input type="text" name="full_name" class="form-control" placeholder="First Name"
-                                                    required>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <input type="text" name="name" class="form-control" placeholder="Last Name"
-                                                    required>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <input type="email" name="email" class="form-control" placeholder="Email"
-                                                    required>
-                                            </div>
-                                        </div>
-                                        <input type="hidden" name="property_id" value="{{ $property->id }}">
-                                        <div class="col-md-12 form-group">
-                                            <textarea class="form-control" name="review" id="exampleTextarea" rows="8"
-                                                placeholder="Review" required></textarea>
-                                        </div>
-                                        <button type="submit" class="btn btn-lg mt-2">Submit
-                                            Review</button>
-                                    </form>
-                                </div>
+                            <ul class="author__contact">
+                                <li><span class="la la-map-marker"><i
+                                            class="fa fa-map-marker"></i></span>{{ $property->created_by->address ?? '' }}
+                                </li>
+                                <li><span class="la la-phone"><i class="fa fa-phone"
+                                            aria-hidden="true"></i></span><a
+                                        href="#">{{ $property->created_by->phone ?? '' }}</a></li>
+                                <li><span class="la la-envelope-o"><i class="fa fa-envelope"
+                                            aria-hidden="true"></i></span><a
+                                        href="#">{{ $property->created_by->email ?? '' }}</a>
+                                </li>
+                            </ul>
+                            <div class="agent-contact-form-sidebar">
+                                <h4>Request Inquiry</h4>
+                                <form method="post" action="{{ route('property.enquiry') }}">
+                                    @csrf
+                                    <input type="hidden" name="property_id" value="{{ $property->id }}">
+                                    <input type="text" id="fname" name="full_name" placeholder="Full Name" required />
+                                    <input type="number" id="pnumber" name="phone_number" placeholder="Phone Number"
+                                        required />
+                                    <input type="email" id="emailid" name="email_address" placeholder="Email Address"
+                                        required />
+
+                                    <textarea placeholder="Message" name="message" required></textarea>
+                                    <input type="submit" name="sendmessage" class="multiple-send-message"
+                                        value="Submit Request" />
+                                </form>
                             </div>
                         </div>
-                    </section>
-                    <!-- End Add Review -->
+                    </div>
                 </div>
-                <aside class="col-lg-4 col-md-12 car">
-                    <div class="single widget">
-                        <!-- End: Schedule a Tour -->
-                        <!-- end author-verified-badge -->
-                        <div class="sidebar">
-                            <div class="widget-boxed mt-33 mt-5">
-                                <div class="widget-boxed-header">
-                                    <h4>Owner Information</h4>
-                                </div>
-                                <div class="widget-boxed-body">
-                                    <div class="sidebar-widget author-widget2">
-                                        <div class="author-box clearfix text-center">
-                                            {{-- <img src="http://itaraheroku.herokuapp.com/static/tenant/ltr/assets/images/faces/male/1.jpg" alt="author-image" class="author__img"> --}}
-                                            <h4 class="author__title">{{ $property->created_by->name ?? '' }}</h4>
-                                        </div>
-                                        <ul class="author__contact">
-                                            <li><span class="la la-map-marker"><i
-                                                        class="fa fa-map-marker"></i></span>{{ $property->created_by->address ?? '' }}
-                                            </li>
-                                            <li><span class="la la-phone"><i class="fa fa-phone"
-                                                        aria-hidden="true"></i></span><a
-                                                    href="#">{{ $property->created_by->phone ?? '' }}</a></li>
-                                            <li><span class="la la-envelope-o"><i class="fa fa-envelope"
-                                                        aria-hidden="true"></i></span><a
-                                                    href="#">{{ $property->created_by->email ?? '' }}</a>
-                                            </li>
-                                        </ul>
-                                        <div class="agent-contact-form-sidebar">
-                                            <h4>Request Inquiry</h4>
-                                            <form name="contact_form" method="post"
-                                                action="{{ route('property.enquiry') }}">
-                                                @csrf
-                                                <input type="text" id="fname" name="full_name" placeholder="Full Name"
-                                                    required />
-                                                <input type="number" id="pnumber" name="phone_number"
-                                                    placeholder="Phone Number" required />
-                                                <input type="email" id="emailid" name="email_address"
-                                                    placeholder="Email Address" required />
-                                                <input type="hidden" name="property_id" value="{{ $property->id }}">
-                                                <textarea placeholder="Message" name="message" required></textarea>
-                                                <input type="submit" name="sendmessage" class="multiple-send-message"
-                                                    value="Submit Request" />
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
+                <div class="main-search-field-2">
+                    <!-- Start: Specials offer -->
+                    <div class="widget-boxed popular mt-5">
+                        <div class="widget-boxed-header">
+                            <h4>Specials of the day</h4>
+                        </div>
+                        <div class="widget-boxed-body">
+                            <div class="banner"><img src="{{ asset('images/single-property/banner.jpg') }}"
+                                    alt="">
                             </div>
-                            <div class="main-search-field-2">
-                                <!-- Start: Specials offer -->
-                                <div class="widget-boxed popular mt-5">
-                                    <div class="widget-boxed-header">
-                                        <h4>Specials of the day</h4>
-                                    </div>
-                                    <div class="widget-boxed-body">
-                                        <div class="banner"><img src="{{ asset('images/single-property/banner.jpg') }}"
-                                                alt="">
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- End: Specials offer -->
-                                <div class="widget-boxed popular mt-5">
-                                    <div class="widget-boxed-header">
-                                        <h4>Popular Tags</h4>
-                                    </div>
-                                    <div class="widget-boxed-body">
-                                        <div class="recent-post">
-                                            <div class="tags">
-                                                @foreach ($property->tags as $key => $item)
-                                                    <span class="badge badge-info">{{ $item->name }}</span>
-                                                @endforeach
-                                            </div>
-                                        </div>
-                                    </div>
+                        </div>
+                    </div>
+                    <!-- End: Specials offer -->
+                    <div class="widget-boxed popular mt-5">
+                        <div class="widget-boxed-header">
+                            <h4>Popular Tags</h4>
+                        </div>
+                        <div class="widget-boxed-body">
+                            <div class="recent-post">
+                                <div class="tags">
+                                    @foreach ($property->tags as $key => $item)
+                                        <span class="badge badge-info">{{ $item->name }}</span>
+                                    @endforeach
                                 </div>
                             </div>
                         </div>
                     </div>
-                </aside>
+                </div>
             </div>
         </div>
+    </aside>
+    </div>
+    </div>
     </section>
     <!-- END SECTION PROPERTIES LISTING -->
 @endsection
